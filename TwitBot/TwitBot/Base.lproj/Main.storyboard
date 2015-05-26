@@ -3,12 +3,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--#Twitter-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="TwitMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -16,13 +18,66 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7im-kq-L98">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="kju-ad-MlG"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="0FE-9h-NDz"/>
+                                </connections>
+                            </tableView>
+                            <tabBar hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BzS-tF-B9k">
+                                <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="#Twitter" image="icon_twitter" id="zRz-Rw-KmT"/>
+                                    <tabBarItem title="#Dribbble" image="icon_dribbble" id="9RV-3d-ql2"/>
+                                    <tabBarItem title="#Apple" image="icon_apple" id="To6-7t-BYw"/>
+                                    <tabBarItem title="#GitHub" image="icon_github" id="qha-Gv-pKE"/>
+                                </items>
+                            </tabBar>
+                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dba-RH-CeZ">
+                                <rect key="frame" x="16" y="64" width="568" height="541"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="SAy-4Y-WJS"/>
+                                </connections>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="BzS-tF-B9k" secondAttribute="trailingMargin" id="2Wj-7C-DJF"/>
+                            <constraint firstItem="dba-RH-CeZ" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="BQu-OV-iz8"/>
+                            <constraint firstItem="BzS-tF-B9k" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="KYd-qj-cN9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7im-kq-L98" secondAttribute="trailing" id="LE1-oM-7mZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dba-RH-CeZ" secondAttribute="trailing" id="Pq9-mO-1Qc"/>
+                            <constraint firstItem="7im-kq-L98" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="top" id="TZs-Qb-F89"/>
+                            <constraint firstItem="dba-RH-CeZ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="ZtY-0K-UkW"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="7im-kq-L98" secondAttribute="bottom" constant="49" id="Zvq-6l-Hqd"/>
+                            <constraint firstItem="7im-kq-L98" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="fnc-i8-BEo"/>
+                            <constraint firstItem="7im-kq-L98" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="fwx-tH-EbT"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="BzS-tF-B9k" secondAttribute="bottomMargin" constant="8" id="hWv-aD-59k"/>
+                            <constraint firstItem="dba-RH-CeZ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="m92-7H-HfK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7im-kq-L98" secondAttribute="trailing" id="uoN-Bh-pGZ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="uoN-Bh-pGZ"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="avR-iL-G6g"/>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <navigationItem key="navigationItem" title="#Twitter" id="avR-iL-G6g"/>
+                    <connections>
+                        <outlet property="tabBar" destination="BzS-tF-B9k" id="jb1-jw-U6N"/>
+                        <outlet property="tableView" destination="7im-kq-L98" id="0z9-de-wv0"/>
+                        <outlet property="webView" destination="dba-RH-CeZ" id="XJe-Ud-M21"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="411" y="-40"/>
+            <point key="canvasLocation" x="-53" y="-144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CoW-OX-f2N">
@@ -35,12 +90,18 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="eUw-rz-BpE"/>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="9U0-uk-KN3"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbh-eK-wAr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-401" y="-40"/>
+            <point key="canvasLocation" x="-1285" y="-128"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_apple" width="23" height="28"/>
+        <image name="icon_dribbble" width="27" height="28"/>
+        <image name="icon_github" width="33" height="28"/>
+        <image name="icon_twitter" width="30" height="27"/>
+    </resources>
 </document>
