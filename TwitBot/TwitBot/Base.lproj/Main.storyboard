@@ -7,7 +7,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--#Twitter-->
+        <!--Twitter Bot-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="TwitMainViewController" sceneMemberID="viewController">
@@ -36,6 +36,9 @@
                                     <tabBarItem title="#Apple" image="icon_apple" id="To6-7t-BYw"/>
                                     <tabBarItem title="#GitHub" image="icon_github" id="qha-Gv-pKE"/>
                                 </items>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="e8a-wH-Gvb"/>
+                                </connections>
                             </tabBar>
                             <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dba-RH-CeZ">
                                 <rect key="frame" x="16" y="64" width="568" height="541"/>
@@ -68,7 +71,7 @@
                         </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationItem key="navigationItem" title="#Twitter" id="avR-iL-G6g"/>
+                    <navigationItem key="navigationItem" title="Twitter Bot" id="avR-iL-G6g"/>
                     <connections>
                         <outlet property="tabBar" destination="BzS-tF-B9k" id="jb1-jw-U6N"/>
                         <outlet property="tableView" destination="7im-kq-L98" id="0z9-de-wv0"/>

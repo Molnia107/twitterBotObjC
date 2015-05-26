@@ -55,12 +55,23 @@ TwitApi *twitApi;
     [self.webView loadRequest:urlRequest];
 }
 
+-(void)setAuthenticateRezult:(BOOL)result{
+    if(result && self.tabBar.selectedItem)
+    {
+        [twitApi getTwitsByTag:self.tabBar.selectedItem.title];
+    }
+}
+
 - (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
     if(twitApi){
         BOOL result = [twitApi verifyRedirectWithRequest:request];
         if(result){
             [self.webView removeFromSuperview];
             [self.tabBar setHidden:false];
+            if(self.tabBar.items.count > 0){
+                UITabBarItem *item =self.tabBar.items[0];
+                [self.tabBar setSelectedItem:item];
+            }
             return false;
         }
     }
@@ -75,5 +86,11 @@ TwitApi *twitApi;
     // [indicator stopAnimating];
 }
 
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
+    self.navigationItem.title = item.title;
+    if(twitApi){
+        [twitApi getTwitsByTag:item.title];
+    }
+}
 
 @end

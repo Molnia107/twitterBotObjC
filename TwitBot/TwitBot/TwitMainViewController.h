@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TwitApi.h"
 
-@interface TwitMainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,TwitApiClient, UIWebViewDelegate>
+@interface TwitMainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,TwitApiClient, UIWebViewDelegate, UITabBarDelegate>
 
 
 @end

@@ -8,6 +8,9 @@
 
 #import "TwitApi.h"
 #import "OAuthConsumer.h"
+#import "AFNetworking.h"
+#import "JSON.h"
+#import "TwitTwit.h"
 
 @implementation TwitApi
 
@@ -134,16 +137,64 @@ OAConsumer *consumer;
     
     NSString* httpBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     accessToken = [[OAToken alloc] initWithHTTPResponseBody:httpBody];
-    // WebServiceSocket *connection = [[WebServiceSocket alloc] init];
-    //  connection.delegate = self;
-    NSString *pdata = [NSString stringWithFormat:@"type=2&token=%@&secret=%@&login=%@", accessToken.key, accessToken.secret, @"true"];
-    // [connection fetch:1 withPostdata:pdata withGetData:@"" isSilent:NO];
     NSLog(@"%@",accessToken.secret);
-    
+    if(authClient){
+        [authClient setAuthenticateRezult:true];
+    }
 }
 
 - (void)didFailOAuth:(OAServiceTicket*)ticket error:(NSError*)error {
     NSLog(@"didFailOAuth");
+    if(authClient){
+        [authClient setAuthenticateRezult:false];
+    }
+}
+
+- (void)getTwitsByTag:(NSString *)tag{
+    OAConsumer *consumer = [[OAConsumer alloc] initWithKey:oAuthConsumerKey
+                                                    secret:consumerSecret];
+    if(!accessToken)
+        return;
+    
+    OADataFetcher *fetcher = [[OADataFetcher alloc] init];
+    
+    //NSString *urlString = @"https://api.twitter.com/1.1/account/settings.json";
+    NSString *urlString = [NSString stringWithFormat:@"https://api.twitter.com/1.1/search/tweets.json?q=%@",@"twitter" ];
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    OAMutableURLRequest *request = [[OAMutableURLRequest alloc] initWithURL:url
+                                                                   consumer:consumer
+                                                                      token:accessToken
+                                                                      realm:nil
+                                                          signatureProvider:nil];
+    [request setHTTPMethod:@"GET"];
+    
+    [fetcher fetchDataWithRequest:request
+                         delegate:self
+                didFinishSelector:@selector(apiTicket:didFinishWithData:)
+                  didFailSelector:@selector(apiTicket:didFailWithError:)];
+}
+
+- (void)apiTicket:(OAServiceTicket*)ticket didFinishWithData:(NSData*)data{
+    NSString *responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    SBJsonParser *parser = [[SBJsonParser alloc] init];
+    NSDictionary *responseDictionary = [parser objectWithString:responseBody];
+    NSArray *twitsJsonArray = [responseDictionary objectForKey:@"statuses"];
+    if(twitsJsonArray){
+        NSMutableArray *twitsArray = [NSMutableArray new];
+        for(NSDictionary *twitDictionary in twitsJsonArray){
+            TwitTwit *twit = [[TwitTwit alloc]initWithDictionary:twitDictionary];
+            if(twit){
+                [twitsArray addObject:twit];
+            }
+        }
+        
+    }
+    NSLog(@"data here");
+}
+
+- (void)apiTicket:(OAServiceTicket*)ticket didFailWithError:(NSData*)data{
+    NSLog(@"fail data");
 }
 
 @end

@@ -38,6 +38,14 @@
 		84492D8C1B14791300BBDB00 /* OAToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 84492D761B14791300BBDB00 /* OAToken.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		84492D8D1B14791300BBDB00 /* OATokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84492D781B14791300BBDB00 /* OATokenManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		84492D8E1B14791300BBDB00 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 84492D7A1B14791300BBDB00 /* README */; };
+		84492DA31B14CCAD00BBDB00 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 84492D981B14CCAD00BBDB00 /* NSObject+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		84492DA41B14CCAD00BBDB00 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 84492D9A1B14CCAD00BBDB00 /* NSString+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		84492DA51B14CCAD00BBDB00 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 84492D9C1B14CCAD00BBDB00 /* SBJsonBase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		84492DA61B14CCAD00BBDB00 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84492D9E1B14CCAD00BBDB00 /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		84492DA71B14CCAD00BBDB00 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84492DA01B14CCAD00BBDB00 /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		84492DA81B14CCAD00BBDB00 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 84492DA11B14CCAD00BBDB00 /* README.md */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		84492DAC1B14D51B00BBDB00 /* TwitTwit.m in Sources */ = {isa = PBXBuildFile; fileRef = 84492DAB1B14D51B00BBDB00 /* TwitTwit.m */; };
+		84492DB01B14D57000BBDB00 /* TwitUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84492DAF1B14D57000BBDB00 /* TwitUser.m */; };
 		85C22CF9F07B958B3EB9D657 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 059D372369F727C0D4D4384E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +121,22 @@
 		84492D781B14791300BBDB00 /* OATokenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OATokenManager.m; sourceTree = "<group>"; };
 		84492D791B14791300BBDB00 /* OAuthConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthConsumer.h; sourceTree = "<group>"; };
 		84492D7A1B14791300BBDB00 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		84492D961B14CCAD00BBDB00 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		84492D971B14CCAD00BBDB00 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		84492D981B14CCAD00BBDB00 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		84492D991B14CCAD00BBDB00 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		84492D9A1B14CCAD00BBDB00 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		84492D9B1B14CCAD00BBDB00 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		84492D9C1B14CCAD00BBDB00 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		84492D9D1B14CCAD00BBDB00 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		84492D9E1B14CCAD00BBDB00 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		84492D9F1B14CCAD00BBDB00 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		84492DA01B14CCAD00BBDB00 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		84492DA11B14CCAD00BBDB00 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		84492DAA1B14D51B00BBDB00 /* TwitTwit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitTwit.h; sourceTree = "<group>"; };
+		84492DAB1B14D51B00BBDB00 /* TwitTwit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitTwit.m; sourceTree = "<group>"; };
+		84492DAE1B14D57000BBDB00 /* TwitUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitUser.h; sourceTree = "<group>"; };
+		84492DAF1B14D57000BBDB00 /* TwitUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitUser.m; sourceTree = "<group>"; };
 		CEA30980702CE28B50AE5B13 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,6 +199,7 @@
 		84492CD51B1362D900BBDB00 /* TwitBot */ = {
 			isa = PBXGroup;
 			children = (
+				84492D931B14CCAD00BBDB00 /* JSON */,
 				84492D501B14791300BBDB00 /* OAuth */,
 				84492D181B146A6B00BBDB00 /* Libraries */,
 				84492D171B1469FD00BBDB00 /* ViewControllers */,
@@ -238,6 +263,8 @@
 		84492D161B1469F300BBDB00 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				84492DAD1B14D55900BBDB00 /* TwitUser */,
+				84492DA91B14D4F500BBDB00 /* TwitTwit */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -330,6 +357,52 @@
 				84492D5E1B14791300BBDB00 /* sha1.h */,
 			);
 			path = Crypto;
+			sourceTree = "<group>";
+		};
+		84492D931B14CCAD00BBDB00 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				84492D951B14CCAD00BBDB00 /* JSON */,
+				84492DA11B14CCAD00BBDB00 /* README.md */,
+			);
+			name = JSON;
+			path = "../../../../Downloads/JSON-master";
+			sourceTree = "<group>";
+		};
+		84492D951B14CCAD00BBDB00 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				84492D961B14CCAD00BBDB00 /* JSON.h */,
+				84492D971B14CCAD00BBDB00 /* NSObject+SBJSON.h */,
+				84492D981B14CCAD00BBDB00 /* NSObject+SBJSON.m */,
+				84492D991B14CCAD00BBDB00 /* NSString+SBJSON.h */,
+				84492D9A1B14CCAD00BBDB00 /* NSString+SBJSON.m */,
+				84492D9B1B14CCAD00BBDB00 /* SBJsonBase.h */,
+				84492D9C1B14CCAD00BBDB00 /* SBJsonBase.m */,
+				84492D9D1B14CCAD00BBDB00 /* SBJsonParser.h */,
+				84492D9E1B14CCAD00BBDB00 /* SBJsonParser.m */,
+				84492D9F1B14CCAD00BBDB00 /* SBJsonWriter.h */,
+				84492DA01B14CCAD00BBDB00 /* SBJsonWriter.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		84492DA91B14D4F500BBDB00 /* TwitTwit */ = {
+			isa = PBXGroup;
+			children = (
+				84492DAA1B14D51B00BBDB00 /* TwitTwit.h */,
+				84492DAB1B14D51B00BBDB00 /* TwitTwit.m */,
+			);
+			name = TwitTwit;
+			sourceTree = "<group>";
+		};
+		84492DAD1B14D55900BBDB00 /* TwitUser */ = {
+			isa = PBXGroup;
+			children = (
+				84492DAE1B14D57000BBDB00 /* TwitUser.h */,
+				84492DAF1B14D57000BBDB00 /* TwitUser.m */,
+			);
+			name = TwitUser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -477,10 +550,16 @@
 				84492D1C1B146B4C00BBDB00 /* TwitApi.m in Sources */,
 				84492CDC1B1362D900BBDB00 /* AppDelegate.m in Sources */,
 				84492D8A1B14791300BBDB00 /* OAServiceTicket.m in Sources */,
+				84492DA51B14CCAD00BBDB00 /* SBJsonBase.m in Sources */,
 				84492D821B14791300BBDB00 /* OACall.m in Sources */,
 				84492D7D1B14791300BBDB00 /* NSURL+Base.m in Sources */,
 				84492D891B14791300BBDB00 /* OARequestParameter.m in Sources */,
+				84492DA41B14CCAD00BBDB00 /* NSString+SBJSON.m in Sources */,
+				84492DB01B14D57000BBDB00 /* TwitUser.m in Sources */,
+				84492DA81B14CCAD00BBDB00 /* README.md in Sources */,
+				84492DA31B14CCAD00BBDB00 /* NSObject+SBJSON.m in Sources */,
 				84492D881B14791300BBDB00 /* OAProblem.m in Sources */,
+				84492DAC1B14D51B00BBDB00 /* TwitTwit.m in Sources */,
 				84492D841B14791300BBDB00 /* OADataFetcher.m in Sources */,
 				84492D7E1B14791300BBDB00 /* Base64Transcoder.c in Sources */,
 				84492D051B145B5800BBDB00 /* TwitTableViewCell.m in Sources */,
@@ -488,12 +567,14 @@
 				84492D8D1B14791300BBDB00 /* OATokenManager.m in Sources */,
 				84492D7F1B14791300BBDB00 /* hmac.c in Sources */,
 				84492D7B1B14791300BBDB00 /* NSMutableURLRequest+Parameters.m in Sources */,
+				84492DA61B14CCAD00BBDB00 /* SBJsonParser.m in Sources */,
 				84492CD91B1362D900BBDB00 /* main.m in Sources */,
 				84492CE21B1362D900BBDB00 /* TwitMainViewController.m in Sources */,
 				84492D811B14791300BBDB00 /* OAAttachment.m in Sources */,
 				84492D831B14791300BBDB00 /* OAConsumer.m in Sources */,
 				84492D7C1B14791300BBDB00 /* NSString+URLEncoding.m in Sources */,
 				84492CDF1B1362D900BBDB00 /* TwitBot.xcdatamodeld in Sources */,
+				84492DA71B14CCAD00BBDB00 /* SBJsonWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

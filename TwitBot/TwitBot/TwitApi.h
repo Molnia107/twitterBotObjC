@@ -12,6 +12,7 @@
 
 @required
 -(void)setUrlRequest:(NSURLRequest *)urlRequest;
+-(void)setAuthenticateRezult:(BOOL)result;
 @end
 
 
@@ -20,5 +21,6 @@
 + (instancetype)sharedInstance;
 - (void)authenticateWithClient:(NSObject<TwitApiClient> *)client;
 - (BOOL) verifyRedirectWithRequest:(NSURLRequest*)request;
+- (void)getTwitsByTag:(NSString *)tag;
 
 @end
