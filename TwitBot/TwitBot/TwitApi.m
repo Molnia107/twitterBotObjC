@@ -16,8 +16,6 @@
 
 static NSString* const oAuthConsumerKey = @"WkLxKrBPzrxbiWVLKhLoPhsOM";
 static NSString* const consumerSecret = @"0dbCsRUF74Wu29RPFEg8ktP3EU7uyELZ2UyTiD6Pz9vNU64YEL";
-static NSString* const username = @"maria.mihailova@touchin.ru";
-static NSString* const password = @"iphoneandroidwp7";
 
 NSObject<TwitApiClient> *authClient;
 OAToken *requestToken;
