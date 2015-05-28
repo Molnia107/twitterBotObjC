@@ -14,6 +14,7 @@
 - (id)initWithDictionary:(NSDictionary*) dictionary;
 @property (strong, nonatomic) NSString *text;
 @property (strong, nonatomic) TwitUser *user;
+@property (strong, nonatomic) NSDate *twitDate;
 
 @end
 

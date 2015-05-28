@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *twitTextLabel;
+@property (strong, nonatomic) IBOutlet UILabel *twitTimeDistance;
 @property (strong, nonatomic) IBOutlet UIImageView *userImageView;
 
 @property (strong, nonatomic) TwitTwit *twit;
@@ -36,6 +37,7 @@
     self.twit = twit;
     self.userNameLabel.text = twit.user.name;
     self.twitTextLabel.text = twit.text;
+    [self setTimeDistance];
     NSURL *url = [[NSURL alloc]initWithString:twit.user.imageUrl];
     TwitImage *twitIamge = [TwitImage sharedInstance];
     [twitIamge downloadImageForTwit:twit withUrl:url completionBlock:^(BOOL succeeded, UIImage *image, TwitTwit *twit) {
@@ -43,6 +45,27 @@
             self.userImageView.image = image;
         }
     }];
+}
+
+- (void)setTimeDistance{
+    NSDate* currentDate = [NSDate date];
+    NSInteger distanceBetweenDates = [currentDate timeIntervalSinceDate:self.twit.twitDate];
+    double secondsInAnHour = 3600;
+    
+    NSString *interval = [NSString stringWithFormat:@"%i с",distanceBetweenDates];
+    if(distanceBetweenDates > 60){
+        if (distanceBetweenDates < 3600){
+            interval = [NSString stringWithFormat:@"%i м",distanceBetweenDates / 60];
+        }
+        else if (distanceBetweenDates < 86400){
+            interval = [NSString stringWithFormat:@"%i ч",distanceBetweenDates / 3600];
+        }
+        else{
+            interval = [NSString stringWithFormat:@"%i д",distanceBetweenDates / 86400];
+        }
+        
+    }
+    self.twitTimeDistance.text = interval;
 }
 
 

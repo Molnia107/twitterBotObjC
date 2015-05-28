@@ -16,49 +16,70 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="1ps-Os-4LC">
-                        <rect key="frame" x="6" y="5" width="43" height="43"/>
+                        <rect key="frame" x="8" y="8" width="43" height="43"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="43" id="4Cj-UT-S2Z"/>
                             <constraint firstAttribute="height" constant="43" id="l8d-gx-Zq4"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6e-xe-R7O">
-                        <rect key="frame" x="59" y="8" width="253" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Name Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6e-xe-R7O">
+                        <rect key="frame" x="61" y="10" width="219" height="21"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIQ-AD-5BQ">
-                        <rect key="frame" x="59" y="28" width="253" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Long long label long long long long long long" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIQ-AD-5BQ">
+                        <rect key="frame" x="61" y="30" width="251" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.53725490196078429" green="0.53725490196078429" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24 h" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oac-oM-LEP">
+                        <rect key="frame" x="280" y="12" width="32" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
+                    <constraint firstItem="oac-oM-LEP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="390-dH-qrY"/>
                     <constraint firstAttribute="bottomMargin" secondItem="1ps-Os-4LC" secondAttribute="bottom" constant="2" id="3mp-ry-AmL"/>
-                    <constraint firstItem="IIQ-AD-5BQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="6ea-yh-9jN"/>
+                    <constraint firstItem="IIQ-AD-5BQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="22" id="6ea-yh-9jN"/>
+                    <constraint firstItem="IIQ-AD-5BQ" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Dvb-oj-gyo"/>
+                    <constraint firstItem="O6e-xe-R7O" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="50" id="G1v-Uz-mgv"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="IIQ-AD-5BQ" secondAttribute="trailing" id="OaP-tg-BOd"/>
+                    <constraint firstItem="oac-oM-LEP" firstAttribute="leading" secondItem="O6e-xe-R7O" secondAttribute="trailing" id="QPu-Qt-MEw"/>
                     <constraint firstItem="O6e-xe-R7O" firstAttribute="leading" secondItem="1ps-Os-4LC" secondAttribute="trailing" constant="10" id="Ryv-5y-C0q"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="oac-oM-LEP" secondAttribute="bottom" constant="17" id="Wcw-ne-Nyn"/>
                     <constraint firstItem="IIQ-AD-5BQ" firstAttribute="leading" secondItem="1ps-Os-4LC" secondAttribute="trailing" constant="10" id="YoP-nn-M7z"/>
-                    <constraint firstItem="1ps-Os-4LC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-3" id="Z1b-2z-UmE"/>
+                    <constraint firstItem="1ps-Os-4LC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Z1b-2z-UmE"/>
                     <constraint firstAttribute="trailingMargin" secondItem="IIQ-AD-5BQ" secondAttribute="trailing" id="azo-Ei-vJ6"/>
-                    <constraint firstItem="1ps-Os-4LC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-2" id="hSI-CG-5cR"/>
-                    <constraint firstItem="O6e-xe-R7O" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="jLf-Dl-cNN"/>
+                    <constraint firstItem="oac-oM-LEP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="b3k-SR-wmw"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="oac-oM-LEP" secondAttribute="trailing" id="eNH-my-Ops"/>
+                    <constraint firstItem="1ps-Os-4LC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="hSI-CG-5cR"/>
+                    <constraint firstItem="O6e-xe-R7O" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="jLf-Dl-cNN"/>
                     <constraint firstAttribute="trailingMargin" secondItem="O6e-xe-R7O" secondAttribute="trailing" id="qtG-qC-Wmq"/>
+                    <constraint firstItem="oac-oM-LEP" firstAttribute="leading" secondItem="1ps-Os-4LC" secondAttribute="trailing" constant="229" id="yJa-OE-4QU"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
                         <exclude reference="3mp-ry-AmL"/>
+                        <exclude reference="G1v-Uz-mgv"/>
+                        <exclude reference="qtG-qC-Wmq"/>
+                        <exclude reference="Dvb-oj-gyo"/>
+                        <exclude reference="azo-Ei-vJ6"/>
+                        <exclude reference="b3k-SR-wmw"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="twitTextLabel" destination="IIQ-AD-5BQ" id="B5k-82-mTP"/>
+                <outlet property="twitTimeDistance" destination="oac-oM-LEP" id="SmQ-lA-Cqn"/>
                 <outlet property="userImageView" destination="1ps-Os-4LC" id="VpL-Z4-xft"/>
                 <outlet property="userNameLabel" destination="O6e-xe-R7O" id="i5q-dJ-KCD"/>
             </connections>
-            <point key="canvasLocation" x="305" y="227.5"/>
+            <point key="canvasLocation" x="305" y="222.5"/>
         </tableViewCell>
     </objects>
     <resources>
