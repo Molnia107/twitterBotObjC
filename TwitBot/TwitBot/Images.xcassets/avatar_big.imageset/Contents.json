@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "icon_github.png"
+      "filename" : "avatar_big.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "icon_github@2x.png"
+      "filename" : "avatar_big@2x.png"
     },
     {
       "idiom" : "universal",

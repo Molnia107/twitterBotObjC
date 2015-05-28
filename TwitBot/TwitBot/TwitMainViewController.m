@@ -107,8 +107,12 @@ static NSString *twitCellNibName = @"TwitTableViewCell";
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
     self.navigationItem.title = item.title;
     [self showSpinner];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
     [self getTwitsForTabBarItem:item];
 }
+
+#pragma local
 
 - (void)getTwitsForTabBarItem:(UITabBarItem *)item{
     if(self.twitApi){
