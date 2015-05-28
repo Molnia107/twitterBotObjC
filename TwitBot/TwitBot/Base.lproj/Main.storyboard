@@ -75,7 +75,16 @@
                         </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationItem key="navigationItem" title="Twitter Bot" id="avR-iL-G6g"/>
+                    <navigationItem key="navigationItem" title="Twitter Bot" id="avR-iL-G6g">
+                        <barButtonItem key="backBarButtonItem" title="Инфо" id="rs2-uJ-gmU">
+                            <connections>
+                                <segue destination="bbw-DL-Dzc" kind="show" id="673-gS-ZEX"/>
+                            </connections>
+                        </barButtonItem>
+                        <connections>
+                            <outlet property="rightBarButtonItem" destination="rs2-uJ-gmU" id="o5S-OW-Lbn"/>
+                        </connections>
+                    </navigationItem>
                     <connections>
                         <outlet property="tabBar" destination="BzS-tF-B9k" id="jb1-jw-U6N"/>
                         <outlet property="tableView" destination="7im-kq-L98" id="0z9-de-wv0"/>
@@ -84,7 +93,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-53" y="-144"/>
+            <point key="canvasLocation" x="-593" y="-128"/>
+        </scene>
+        <!--Инфо-->
+        <scene sceneID="hpu-bt-VB7">
+            <objects>
+                <viewController id="bbw-DL-Dzc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qap-8D-pq6"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZvZ-CM-vYi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bVR-u8-Clt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Инфо" id="BrV-HD-k41"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kb8-CF-VPZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="199" y="-128"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CoW-OX-f2N">
