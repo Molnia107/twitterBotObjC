@@ -8,6 +8,14 @@
 
 #import "TwitTableViewCell.h"
 
+@interface TwitTableViewCell()
+
+@property (strong, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *twitTextLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *userImageView;
+
+@end
+
 @implementation TwitTableViewCell
 
 - (void)awakeFromNib {
@@ -18,6 +26,11 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)updateWithTwit:(TwitTwit*)twit{
+    self.userNameLabel.text = twit.user.name;
+    self.twitTextLabel.text = twit.text;
 }
 
 @end

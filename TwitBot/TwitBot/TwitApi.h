@@ -13,6 +13,8 @@
 @required
 -(void)setUrlRequest:(NSURLRequest *)urlRequest;
 -(void)setAuthenticateRezult:(BOOL)result;
+-(void)setTwits:(NSArray *)twits ForTag:(NSString *)tag;
+
 @end
 
 

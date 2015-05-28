@@ -46,6 +46,7 @@
 		84492DA81B14CCAD00BBDB00 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 84492DA11B14CCAD00BBDB00 /* README.md */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		84492DAC1B14D51B00BBDB00 /* TwitTwit.m in Sources */ = {isa = PBXBuildFile; fileRef = 84492DAB1B14D51B00BBDB00 /* TwitTwit.m */; };
 		84492DB01B14D57000BBDB00 /* TwitUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84492DAF1B14D57000BBDB00 /* TwitUser.m */; };
+		84D1DB0A1B15C9D200DC9669 /* TwitSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D1DB091B15C9D200DC9669 /* TwitSearchResult.m */; };
 		85C22CF9F07B958B3EB9D657 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 059D372369F727C0D4D4384E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +138,8 @@
 		84492DAB1B14D51B00BBDB00 /* TwitTwit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitTwit.m; sourceTree = "<group>"; };
 		84492DAE1B14D57000BBDB00 /* TwitUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitUser.h; sourceTree = "<group>"; };
 		84492DAF1B14D57000BBDB00 /* TwitUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitUser.m; sourceTree = "<group>"; };
+		84D1DB081B15C9D200DC9669 /* TwitSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitSearchResult.h; sourceTree = "<group>"; };
+		84D1DB091B15C9D200DC9669 /* TwitSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitSearchResult.m; sourceTree = "<group>"; };
 		CEA30980702CE28B50AE5B13 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -263,6 +266,7 @@
 		84492D161B1469F300BBDB00 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				84D1DB071B15C9B500DC9669 /* TwitSearchResult */,
 				84492DAD1B14D55900BBDB00 /* TwitUser */,
 				84492DA91B14D4F500BBDB00 /* TwitTwit */,
 			);
@@ -403,6 +407,15 @@
 				84492DAF1B14D57000BBDB00 /* TwitUser.m */,
 			);
 			name = TwitUser;
+			sourceTree = "<group>";
+		};
+		84D1DB071B15C9B500DC9669 /* TwitSearchResult */ = {
+			isa = PBXGroup;
+			children = (
+				84D1DB081B15C9D200DC9669 /* TwitSearchResult.h */,
+				84D1DB091B15C9D200DC9669 /* TwitSearchResult.m */,
+			);
+			name = TwitSearchResult;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -558,6 +571,7 @@
 				84492DB01B14D57000BBDB00 /* TwitUser.m in Sources */,
 				84492DA81B14CCAD00BBDB00 /* README.md in Sources */,
 				84492DA31B14CCAD00BBDB00 /* NSObject+SBJSON.m in Sources */,
+				84D1DB0A1B15C9D200DC9669 /* TwitSearchResult.m in Sources */,
 				84492D881B14791300BBDB00 /* OAProblem.m in Sources */,
 				84492DAC1B14D51B00BBDB00 /* TwitTwit.m in Sources */,
 				84492D841B14791300BBDB00 /* OADataFetcher.m in Sources */,

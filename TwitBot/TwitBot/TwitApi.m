@@ -12,15 +12,19 @@
 #import "JSON.h"
 #import "TwitTwit.h"
 
+@interface TwitApi ()
+    @property (strong, nonatomic) NSObject<TwitApiClient> *authClient;
+    @property (strong, nonatomic) OAToken *requestToken;
+    @property (strong, nonatomic) OAToken *accessToken;
+    @property (strong, nonatomic) OAConsumer *consumer;
+@end
+
 @implementation TwitApi
 
 static NSString* const oAuthConsumerKey = @"WkLxKrBPzrxbiWVLKhLoPhsOM";
 static NSString* const consumerSecret = @"0dbCsRUF74Wu29RPFEg8ktP3EU7uyELZ2UyTiD6Pz9vNU64YEL";
 
-NSObject<TwitApiClient> *authClient;
-OAToken *requestToken;
-OAToken *accessToken;
-OAConsumer *consumer;
+
 
 - (id)init {
     self = [super init];
@@ -42,8 +46,8 @@ OAConsumer *consumer;
 }
 
 - (void)authenticateWithClient:(NSObject<TwitApiClient> *)client{
-    authClient = client;
-    consumer = [[OAConsumer alloc] initWithKey:oAuthConsumerKey
+    self.authClient = client;
+    self.consumer = [[OAConsumer alloc] initWithKey:oAuthConsumerKey
                                                     secret:consumerSecret];
     
     OADataFetcher *fetcher = [[OADataFetcher alloc] init];
@@ -51,7 +55,7 @@ OAConsumer *consumer;
     NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/oauth/request_token"];
     
     OAMutableURLRequest *request = [[OAMutableURLRequest alloc] initWithURL:url
-                                                                   consumer:consumer
+                                                                   consumer:self.consumer
                                                                       token:nil
                                                                       realm:nil
                                                           signatureProvider:nil];
@@ -69,7 +73,7 @@ OAConsumer *consumer;
     if (ticket.didSucceed)
     {
         NSString* httpBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        requestToken = [[OAToken alloc] initWithHTTPResponseBody:httpBody];
+        self.requestToken = [[OAToken alloc] initWithHTTPResponseBody:httpBody];
         
         NSURL* authorizeUrl = [NSURL URLWithString:@"https://api.twitter.com/oauth/authorize"];
         OAMutableURLRequest* authorizeRequest = [[OAMutableURLRequest alloc] initWithURL:authorizeUrl
@@ -77,12 +81,12 @@ OAConsumer *consumer;
                                                                                    token:nil
                                                                                    realm:nil
                                                                        signatureProvider:nil];
-        NSString* oauthToken = requestToken.key;
+        NSString* oauthToken = self.requestToken.key;
         OARequestParameter* oauthTokenParam = [[OARequestParameter alloc] initWithName:@"oauth_token" value:oauthToken];
         [authorizeRequest setParameters:[NSArray arrayWithObject:oauthTokenParam]];
 
-        if(authClient){
-            [authClient setUrlRequest:authorizeRequest];
+        if(self.authClient){
+            [self.authClient setUrlRequest:authorizeRequest];
         }
     }
 }
@@ -113,7 +117,7 @@ OAConsumer *consumer;
         
         if (verifier) {
             NSURL* accessTokenUrl = [NSURL URLWithString:@"https://api.twitter.com/oauth/access_token"];
-            OAMutableURLRequest* accessTokenRequest = [[OAMutableURLRequest alloc] initWithURL:accessTokenUrl consumer:consumer token:requestToken realm:nil signatureProvider:nil];
+            OAMutableURLRequest* accessTokenRequest = [[OAMutableURLRequest alloc] initWithURL:accessTokenUrl consumer:self.consumer token:self.requestToken realm:nil signatureProvider:nil];
             OARequestParameter* verifierParam = [[OARequestParameter alloc] initWithName:@"oauth_verifier" value:verifier];
             [accessTokenRequest setHTTPMethod:@"POST"];
             [accessTokenRequest setParameters:[NSArray arrayWithObject:verifierParam]];
@@ -134,35 +138,35 @@ OAConsumer *consumer;
 - (void)didReceiveAccessToken:(OAServiceTicket*)ticket data:(NSData*)data {
     
     NSString* httpBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    accessToken = [[OAToken alloc] initWithHTTPResponseBody:httpBody];
-    NSLog(@"%@",accessToken.secret);
-    if(authClient){
-        [authClient setAuthenticateRezult:true];
+    self.accessToken = [[OAToken alloc] initWithHTTPResponseBody:httpBody];
+    NSLog(@"%@",self.accessToken.secret);
+    if(self.authClient){
+        [self.authClient setAuthenticateRezult:true];
     }
 }
 
 - (void)didFailOAuth:(OAServiceTicket*)ticket error:(NSError*)error {
     NSLog(@"didFailOAuth");
-    if(authClient){
-        [authClient setAuthenticateRezult:false];
+    if(self.authClient){
+        [self.authClient setAuthenticateRezult:false];
     }
 }
 
 - (void)getTwitsByTag:(NSString *)tag{
     OAConsumer *consumer = [[OAConsumer alloc] initWithKey:oAuthConsumerKey
                                                     secret:consumerSecret];
-    if(!accessToken)
+    if(!self.accessToken)
         return;
     
     OADataFetcher *fetcher = [[OADataFetcher alloc] init];
     
     //NSString *urlString = @"https://api.twitter.com/1.1/account/settings.json";
-    NSString *urlString = [NSString stringWithFormat:@"https://api.twitter.com/1.1/search/tweets.json?q=%@",@"twitter" ];
+    NSString *urlString = [NSString stringWithFormat:@"https://api.twitter.com/1.1/search/tweets.json?q=%@", tag ];
     NSURL *url = [NSURL URLWithString:urlString];
     
     OAMutableURLRequest *request = [[OAMutableURLRequest alloc] initWithURL:url
                                                                    consumer:consumer
-                                                                      token:accessToken
+                                                                      token:self.accessToken
                                                                       realm:nil
                                                           signatureProvider:nil];
     [request setHTTPMethod:@"GET"];
@@ -178,6 +182,7 @@ OAConsumer *consumer;
     SBJsonParser *parser = [[SBJsonParser alloc] init];
     NSDictionary *responseDictionary = [parser objectWithString:responseBody];
     NSArray *twitsJsonArray = [responseDictionary objectForKey:@"statuses"];
+    NSString *tag = [[responseDictionary objectForKey:@"search_metadata"] objectForKey:@"query"];
     if(twitsJsonArray){
         NSMutableArray *twitsArray = [NSMutableArray new];
         for(NSDictionary *twitDictionary in twitsJsonArray){
@@ -186,9 +191,11 @@ OAConsumer *consumer;
                 [twitsArray addObject:twit];
             }
         }
-        
+        if(self.authClient){
+            [self.authClient setTwits: twitsArray ForTag: tag];
+        }
     }
-    NSLog(@"data here");
+    
 }
 
 - (void)apiTicket:(OAServiceTicket*)ticket didFailWithError:(NSData*)data{
