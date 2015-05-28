@@ -152,7 +152,7 @@ static NSString* const consumerSecret = @"0dbCsRUF74Wu29RPFEg8ktP3EU7uyELZ2UyTiD
     }
 }
 
-- (void)getTwitsByTag:(NSString *)tag{
+- (void)getTwitsByTag:(NSString *)tag afterTwit:(NSNumber *)twitId{
     OAConsumer *consumer = [[OAConsumer alloc] initWithKey:oAuthConsumerKey
                                                     secret:consumerSecret];
     if(!self.accessToken)
@@ -162,6 +162,9 @@ static NSString* const consumerSecret = @"0dbCsRUF74Wu29RPFEg8ktP3EU7uyELZ2UyTiD
     
     //NSString *urlString = @"https://api.twitter.com/1.1/account/settings.json";
     NSString *urlString = [NSString stringWithFormat:@"https://api.twitter.com/1.1/search/tweets.json?q=%@", tag ];
+    if(twitId > 0){
+        urlString = [NSString stringWithFormat:@"%@&max_id=%@",urlString,twitId];
+    }
     NSURL *url = [NSURL URLWithString:urlString];
     
     OAMutableURLRequest *request = [[OAMutableURLRequest alloc] initWithURL:url
@@ -181,21 +184,10 @@ static NSString* const consumerSecret = @"0dbCsRUF74Wu29RPFEg8ktP3EU7uyELZ2UyTiD
     NSString *responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     SBJsonParser *parser = [[SBJsonParser alloc] init];
     NSDictionary *responseDictionary = [parser objectWithString:responseBody];
-    NSArray *twitsJsonArray = [responseDictionary objectForKey:@"statuses"];
-    NSString *tag = [[responseDictionary objectForKey:@"search_metadata"] objectForKey:@"query"];
-    if(twitsJsonArray){
-        NSMutableArray *twitsArray = [NSMutableArray new];
-        for(NSDictionary *twitDictionary in twitsJsonArray){
-            TwitTwit *twit = [[TwitTwit alloc]initWithDictionary:twitDictionary];
-            if(twit){
-                [twitsArray addObject:twit];
-            }
-        }
-        if(self.authClient){
-            [self.authClient setTwits: twitsArray ForTag: tag];
-        }
+    TwitSearchResult *searchResult = [[TwitSearchResult alloc] initWithDictionary:responseDictionary];
+    if(self.authClient){
+        [self.authClient setSearchResult:searchResult];
     }
-    
 }
 
 - (void)apiTicket:(OAServiceTicket*)ticket didFailWithError:(NSData*)data{

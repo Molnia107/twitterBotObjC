@@ -10,7 +10,11 @@
 
 @interface TwitSearchResult : NSObject
 
+-(id)initWithDictionary:(NSDictionary*) dictionary;
+-(void)appendSearchResult:(TwitSearchResult*) searchResult;
+
 @property (strong, nonatomic) NSArray *twitsArray;
 @property (strong, nonatomic) NSString *tag;
+@property (strong, nonatomic) NSNumber *minTwitId;
 
 @end

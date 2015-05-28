@@ -18,6 +18,8 @@
         NSDictionary *userDictionary = [dictionary valueForKey:@"user"];
         TwitUser *user = [[TwitUser alloc] initWithDictionary:userDictionary];
         
+        self.twitId = [dictionary valueForKey:@"id"];
+        
         NSString *dateString =[dictionary valueForKey:@"created_at"];
         NSDateFormatter *dateFormater = [NSDateFormatter new];
         [dateFormater setDateFormat:@"EEE MMM dd HH:mm:ss Z yyyy"];

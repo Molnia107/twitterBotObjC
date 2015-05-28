@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TwitSearchResult.h"
 
 @protocol TwitApiClient<NSObject>
 
 @required
 -(void)setUrlRequest:(NSURLRequest *)urlRequest;
 -(void)setAuthenticateRezult:(BOOL)result;
--(void)setTwits:(NSArray *)twits ForTag:(NSString *)tag;
+-(void)setSearchResult:(TwitSearchResult*)twitSearchResult;
 
 @end
 
@@ -23,6 +24,6 @@
 + (instancetype)sharedInstance;
 - (void)authenticateWithClient:(NSObject<TwitApiClient> *)client;
 - (BOOL) verifyRedirectWithRequest:(NSURLRequest*)request;
-- (void)getTwitsByTag:(NSString *)tag;
+- (void)getTwitsByTag:(NSString *)tag afterTwit:(NSNumber *)twitId;
 
 @end

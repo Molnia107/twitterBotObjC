@@ -48,6 +48,8 @@
 		84492DB01B14D57000BBDB00 /* TwitUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84492DAF1B14D57000BBDB00 /* TwitUser.m */; };
 		84D1DB0A1B15C9D200DC9669 /* TwitSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D1DB091B15C9D200DC9669 /* TwitSearchResult.m */; };
 		84D1DB0E1B17008A00DC9669 /* TwitImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D1DB0D1B17008900DC9669 /* TwitImage.m */; };
+		84D1DB131B172B7000DC9669 /* TwitButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D1DB111B172B7000DC9669 /* TwitButtonTableViewCell.m */; };
+		84D1DB141B172B7000DC9669 /* TwitButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D1DB121B172B7000DC9669 /* TwitButtonTableViewCell.xib */; };
 		85C22CF9F07B958B3EB9D657 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 059D372369F727C0D4D4384E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -143,6 +145,9 @@
 		84D1DB091B15C9D200DC9669 /* TwitSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitSearchResult.m; sourceTree = "<group>"; };
 		84D1DB0C1B17008900DC9669 /* TwitImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitImage.h; sourceTree = "<group>"; };
 		84D1DB0D1B17008900DC9669 /* TwitImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitImage.m; sourceTree = "<group>"; };
+		84D1DB101B172B7000DC9669 /* TwitButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitButtonTableViewCell.h; sourceTree = "<group>"; };
+		84D1DB111B172B7000DC9669 /* TwitButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitButtonTableViewCell.m; sourceTree = "<group>"; };
+		84D1DB121B172B7000DC9669 /* TwitButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwitButtonTableViewCell.xib; sourceTree = "<group>"; };
 		CEA30980702CE28B50AE5B13 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -279,6 +284,7 @@
 		84492D171B1469FD00BBDB00 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				84D1DB0F1B172B3E00DC9669 /* TwitButtonTableViewCell */,
 				84492CFF1B145AA100BBDB00 /* TwitTableViewCell */,
 				84492D151B14697200BBDB00 /* TwitMainViewController */,
 			);
@@ -431,6 +437,16 @@
 			name = TwitImage;
 			sourceTree = "<group>";
 		};
+		84D1DB0F1B172B3E00DC9669 /* TwitButtonTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				84D1DB101B172B7000DC9669 /* TwitButtonTableViewCell.h */,
+				84D1DB111B172B7000DC9669 /* TwitButtonTableViewCell.m */,
+				84D1DB121B172B7000DC9669 /* TwitButtonTableViewCell.xib */,
+			);
+			name = TwitButtonTableViewCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -515,6 +531,7 @@
 			files = (
 				84492D8E1B14791300BBDB00 /* README in Resources */,
 				84492CE51B1362D900BBDB00 /* Main.storyboard in Resources */,
+				84D1DB141B172B7000DC9669 /* TwitButtonTableViewCell.xib in Resources */,
 				84492D061B145B5800BBDB00 /* TwitTableViewCell.xib in Resources */,
 				84492CEA1B1362D900BBDB00 /* LaunchScreen.xib in Resources */,
 				84492D8B1B14791300BBDB00 /* OATestServer.rb in Resources */,
@@ -576,6 +593,7 @@
 				84492D1C1B146B4C00BBDB00 /* TwitApi.m in Sources */,
 				84492CDC1B1362D900BBDB00 /* AppDelegate.m in Sources */,
 				84492D8A1B14791300BBDB00 /* OAServiceTicket.m in Sources */,
+				84D1DB131B172B7000DC9669 /* TwitButtonTableViewCell.m in Sources */,
 				84D1DB0E1B17008A00DC9669 /* TwitImage.m in Sources */,
 				84492DA51B14CCAD00BBDB00 /* SBJsonBase.m in Sources */,
 				84492D821B14791300BBDB00 /* OACall.m in Sources */,

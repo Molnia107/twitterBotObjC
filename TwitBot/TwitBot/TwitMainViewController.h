@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "TwitApi.h"
+#import "TwitButtonTableViewCell.h"
 
-@interface TwitMainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,TwitApiClient, UIWebViewDelegate, UITabBarDelegate>
+@interface TwitMainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,TwitApiClient, UIWebViewDelegate, UITabBarDelegate, TwitShowMoreDelegate>
 
 
 @end

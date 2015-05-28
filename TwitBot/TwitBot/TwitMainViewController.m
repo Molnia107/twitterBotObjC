@@ -8,6 +8,8 @@
 
 #import "TwitMainViewController.h"
 #import "TwitTableViewCell.h"
+#import "TwitSearchResult.h"
+
 #import "TwitApi.h"
 
 @interface TwitMainViewController ()
@@ -17,13 +19,15 @@
 @property (strong, nonatomic) IBOutlet UITabBar *tabBar;
 
 @property (strong, nonatomic) TwitApi *twitApi;
-@property (strong, nonatomic) NSArray *twitsArray;
+@property (strong, nonatomic) TwitSearchResult *twitSearchResult;
 @end
 
 @implementation TwitMainViewController
 
 static NSString *twitCellIdentifier = @"TwitCell";
 static NSString *twitCellNibName = @"TwitTableViewCell";
+static NSString *buttonCellIdentifier = @"TwitButtonCell";
+static NSString *buttonCellNibName = @"TwitButtonTableViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,20 +44,31 @@ static NSString *twitCellNibName = @"TwitTableViewCell";
 #pragma UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if(self.twitsArray){
-        return self.twitsArray.count;
+    if(self.twitSearchResult.twitsArray){
+        return self.twitSearchResult.twitsArray.count + 1;
     }
     return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    TwitTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:twitCellIdentifier];
-    if(!cell) {
-        [self.tableView registerNib:[UINib nibWithNibName:twitCellNibName bundle:nil] forCellReuseIdentifier:twitCellIdentifier];
-        cell = [self.tableView dequeueReusableCellWithIdentifier:twitCellIdentifier];
+    if(indexPath.row < self.twitSearchResult.twitsArray.count){
+        TwitTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:twitCellIdentifier];
+        if(!cell) {
+            [self.tableView registerNib:[UINib nibWithNibName:twitCellNibName bundle:nil] forCellReuseIdentifier:twitCellIdentifier];
+            cell = [self.tableView dequeueReusableCellWithIdentifier:twitCellIdentifier];
+        }
+        [cell updateWithTwit:self.twitSearchResult.twitsArray[indexPath.row]];
+        return cell;
     }
-    [cell updateWithTwit:self.twitsArray[indexPath.row]];
-    return cell;
+    else{
+        TwitButtonTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:buttonCellIdentifier];
+        if(!cell) {
+            [self.tableView registerNib:[UINib nibWithNibName:buttonCellNibName bundle:nil] forCellReuseIdentifier:buttonCellIdentifier];
+            cell = [self.tableView dequeueReusableCellWithIdentifier:buttonCellIdentifier];
+        }
+        cell.showMoreDelegate = self;
+        return cell;
+    }
 }
 
 #pragma TwitApiClient
@@ -71,9 +86,14 @@ static NSString *twitCellNibName = @"TwitTableViewCell";
     }
 }
 
--(void)setTwits:(NSArray *)twits ForTag:(NSString *)tag{
-    if([self checkTag:tag]){
-        self.twitsArray = twits;
+-(void)setSearchResult:(TwitSearchResult*)twitSearchResult{
+    if([self checkTag:twitSearchResult.tag]){
+        if(self.twitSearchResult && [self.twitSearchResult.tag isEqualToString: twitSearchResult.tag]){
+            [self.twitSearchResult appendSearchResult:twitSearchResult];
+        }
+        else{
+            self.twitSearchResult = twitSearchResult;
+        }
         [self.tableView reloadData];
         [self hideSpinner];
     }
@@ -112,12 +132,20 @@ static NSString *twitCellNibName = @"TwitTableViewCell";
     [self getTwitsForTabBarItem:item];
 }
 
+#pragma ShowMoreDelegate
+
+-(void)showMoreTwits{
+    if(self.twitApi && self.twitSearchResult){
+        [self.twitApi getTwitsByTag:self.twitSearchResult.tag afterTwit:self.twitSearchResult.minTwitId];
+    }
+}
+
 #pragma local
 
 - (void)getTwitsForTabBarItem:(UITabBarItem *)item{
     if(self.twitApi){
         NSString *tag = [self getTagFromTabBarItem:item];
-        [self.twitApi getTwitsByTag:tag];
+        [self.twitApi getTwitsByTag:tag afterTwit:0];
     }
 }
 

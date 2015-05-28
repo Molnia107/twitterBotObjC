@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -74,10 +73,10 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="twitTextLabel" destination="IIQ-AD-5BQ" id="B5k-82-mTP"/>
-                <outlet property="twitTimeDistance" destination="oac-oM-LEP" id="SmQ-lA-Cqn"/>
-                <outlet property="userImageView" destination="1ps-Os-4LC" id="VpL-Z4-xft"/>
-                <outlet property="userNameLabel" destination="O6e-xe-R7O" id="i5q-dJ-KCD"/>
+                <outlet property="imageViewUser" destination="1ps-Os-4LC" id="tME-gH-UP1"/>
+                <outlet property="labelTwitText" destination="IIQ-AD-5BQ" id="Buy-S1-e6H"/>
+                <outlet property="labelTwitTimeDistance" destination="oac-oM-LEP" id="bdQ-uG-gWM"/>
+                <outlet property="labelUserName" destination="O6e-xe-R7O" id="Lzk-Y8-f0c"/>
             </connections>
             <point key="canvasLocation" x="305" y="222.5"/>
         </tableViewCell>

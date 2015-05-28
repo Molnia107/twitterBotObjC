@@ -15,6 +15,7 @@
 @property (strong, nonatomic) NSString *text;
 @property (strong, nonatomic) TwitUser *user;
 @property (strong, nonatomic) NSDate *twitDate;
+@property (strong, nonatomic) NSNumber *twitId;
 
 @end
 

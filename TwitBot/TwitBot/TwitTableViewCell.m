@@ -11,10 +11,10 @@
 
 @interface TwitTableViewCell()
 
-@property (strong, nonatomic) IBOutlet UILabel *userNameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *twitTextLabel;
-@property (strong, nonatomic) IBOutlet UILabel *twitTimeDistance;
-@property (strong, nonatomic) IBOutlet UIImageView *userImageView;
+@property (strong, nonatomic) IBOutlet UILabel *labelUserName;
+@property (strong, nonatomic) IBOutlet UILabel *labelTwitText;
+@property (strong, nonatomic) IBOutlet UILabel *labelTwitTimeDistance;
+@property (strong, nonatomic) IBOutlet UIImageView *imageViewUser;
 
 @property (strong, nonatomic) TwitTwit *twit;
 @end
@@ -22,7 +22,7 @@
 @implementation TwitTableViewCell
 
 - (void)awakeFromNib {
-    CALayer * layer = self.userImageView.layer;
+    CALayer * layer = self.imageViewUser.layer;
     [layer setMasksToBounds:YES];
     [layer setCornerRadius:5.0];
 }
@@ -35,14 +35,14 @@
 
 - (void)updateWithTwit:(TwitTwit*)twit{
     self.twit = twit;
-    self.userNameLabel.text = twit.user.name;
-    self.twitTextLabel.text = twit.text;
+    self.labelUserName.text = twit.user.name;
+    self.labelTwitText.text = twit.text;
     [self setTimeDistance];
     NSURL *url = [[NSURL alloc]initWithString:twit.user.imageUrl];
     TwitImage *twitIamge = [TwitImage sharedInstance];
     [twitIamge downloadImageForTwit:twit withUrl:url completionBlock:^(BOOL succeeded, UIImage *image, TwitTwit *twit) {
         if(succeeded && twit == self.twit){
-            self.userImageView.image = image;
+            self.imageViewUser.image = image;
         }
     }];
 }
@@ -65,7 +65,7 @@
         }
         
     }
-    self.twitTimeDistance.text = interval;
+    self.labelTwitTimeDistance.text = interval;
 }
 
 
